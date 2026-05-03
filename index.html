@@ -7,9 +7,56 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Online Store</h1>
-    </header>
+    <header class="header">
+        
+        <!-- LEFT: Logo -->
+    <div class="logo">
+        <!-- <h2>MyStore</h2> -->
+        <h2>Welcome to Our Online Store</h2>
+    </div>
+
+    <!-- CENTER: Navigation -->
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- RIGHT: Search + Cart -->
+    <div class="right-section">
+
+        <!-- Search -->
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+        </div>
+
+        <!-- Cart -->
+        <div class="cart">
+            🛒
+            <span class="cart-count">0</span>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger">
+            ☰
+        </div>
+
+    </div>
+
+</header>
+<section class="hero">
+
+    <div class="hero-content">
+        <h1>Biggest Sale of the Year!</h1>
+        <p>Up to 50% off on all products. Don’t miss out!</p>
+
+        <a href="#products" class="cta-btn">Shop Now</a>
+    </div>
+
+</section>
     <script src="scripts/app.js"></script>
 </body>
 </html>
