@@ -5,15 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce Frontend</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link href="https://db.onlinewebfonts.com/c/8b8821ce464b5a4f4eb91cc78e57b2d7?family=Myriad+Pro+Semibold+SemiCondensed" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <header class="header">
         
         <!-- LEFT: Logo -->
     <div class="logo">
-        <!-- <h2>MyStore</h2> -->
-        <h2>Welcome to Our Online Store</h2>
-    </div>
+    <svg class="logo-svg" viewBox="0 0 400 100">
+
+        <!-- Main text -->
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+              class="glitch-text main">
+            NEONSHOP
+        </text>
+
+        <!-- Glitch layers -->
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+              class="glitch-text glitch1">
+            NEONSHOP
+        </text>
+
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+              class="glitch-text glitch2">
+            NEONSHOP
+        </text>
+
+    </svg>
+</div>
 
     <!-- CENTER: Navigation -->
     <nav class="nav">
@@ -49,13 +68,60 @@
 </header>
 <section class="hero">
 
-    <div class="hero-content">
-        <h1>Biggest Sale of the Year!</h1>
-        <p>Up to 50% off on all products. Don’t miss out!</p>
-
-        <a href="#products" class="cta-btn">Shop Now</a>
+    <!-- SLIDER IMAGES -->
+    <div class="hero-slider">
+        <img src="assets/samsung.jpg" class="active">
+        <img src="assets/cosmetics copy.jpg">
+        <img src="assets/garments.jpg">
+        <img src="assets/grocery.jpg">
+        <img src="assets/furniture copy.jpg">
+        <img src="assets/tv.jpg">
+        <img src="assets/sports copy.jpg" alt="">
     </div>
 
+    <!-- CONTENT OVER IMAGE -->
+    <!-- <div class="hero-content">
+        <h1>Biggest Sale of the Year!</h1>
+        <p>Up to 50% off on all products</p>
+        <a href="#products" class="cta-btn">Shop Now</a>
+    </div> -->
+
+</section>
+<!-- <section class="categories">
+    <div class="category-list">
+        <div class="category-item">
+            <img src="assets/Icon1 copy.jpg" alt="Electronics">
+            <p>Electronics</p>
+        </div>
+        <div class="category-item">
+            <img src="assets/Icon2 copy.jpg" alt="Fashion">
+            <p>Fashion</p>
+        </div>
+        <div class="category-item">
+            <img src="assets/Icon3 copy.jpg" alt="Home & Living">
+            <p>Home Decors</p>
+        </div>
+        <div class="category-item">
+            <img src="assets/Icon4 copy.jpg" alt="Beauty & Personal Care">
+            <p>Beauty & Care</p>
+        </div>
+        <div class="category-item">
+            <img src="assets/Icon5 copy.jpg" alt="Grocery">
+            <p>Grocery</p>
+        </div>
+        <div class="category-item">
+            <img src="assets/Icon6 copy.jpg" alt="Sports & Outdoors">
+            <p>Sports & Outdoors</p>
+        </div>
+    </div>
+
+</section> -->
+<section class="products">
+    <h2>Products</h2>
+
+    <div class="product-grid" id="productGrid">
+        <!-- JS will fill this -->
+    </div>
 </section>
     <script src="scripts/app.js"></script>
 </body>
