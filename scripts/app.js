@@ -7,23 +7,119 @@ hamburger.addEventListener("click", () => {
 });
 
 let slides = document.querySelectorAll(".hero-slider img");
+let prevBtn = document.querySelector(".prev");
+let nextBtn = document.querySelector(".next");
 let index = 0;
 
-setInterval(() => {
+/* SHOW SLIDE FUNCTION */
+function showSlide(i) {
 
-    slides[index].classList.remove("active");
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    slides[i].classList.add("active");
+}
+
+/* AUTO SLIDE */
+// setInterval(() => {
+
+//     // slides[index].classList.remove("active");
+
+//     index++;
+
+//     if (index >= slides.length) {
+//         index = 0;
+//     }
+
+//     showSlide(index);
+//     // slides[index].classList.add("active");
+
+// }, 3000);
+
+
+
+
+/* AUTO SLIDE VARIABLE */
+let autoSlide;
+
+/* AUTO SLIDE FUNCTION */
+function startAutoSlide() {
+
+    autoSlide = setInterval(() => {
+
+        index++;
+
+        if(index >= slides.length) {
+            index = 0;
+        }
+
+        showSlide(index);
+
+    }, 3000);
+}
+
+/* START AUTO SLIDE */
+startAutoSlide();
+
+/* NEXT BUTTON */
+// nextBtn.addEventListener("click", () => {
+
+//     index++;
+
+//     if(index >= slides.length) {
+//         index = 0;
+//     }
+
+//     showSlide(index);
+
+// });
+
+
+/* NEXT BUTTON */
+nextBtn.addEventListener("click", () => {
 
     index++;
 
-    if (index >= slides.length) {
+    if(index >= slides.length) {
         index = 0;
     }
 
-    slides[index].classList.add("active");
+    showSlide(index);
 
-}, 3000);
+    clearInterval(autoSlide);
+    startAutoSlide();
 
+});
 
+/* PREV BUTTON */
+// prevBtn.addEventListener("click", () => {
+
+//     index--;
+
+//     if(index < 0) {
+//         index = slides.length - 1;
+//     }
+
+//     showSlide(index);
+
+// });
+
+/* PREV BUTTON */
+prevBtn.addEventListener("click", () => {
+
+    index--;
+
+    if(index < 0) {
+        index = slides.length - 1;
+    }
+
+    showSlide(index);
+
+    clearInterval(autoSlide);
+    startAutoSlide();
+
+});
 
 // let productGrid = document.getElementById("productGrid");
 
@@ -78,9 +174,11 @@ async function loadProducts() {
         card.innerHTML = `
             <img src="${p.image}" loading="lazy">
             <h3>${p.title}</h3>
-            <p>$${p.price}</p>
-            <button>Add to Cart</button>
-        `;
+            <div class="price_and_cart">
+                <p>$${p.price}</p>
+                <button>Add to Cart</button>
+            </div>
+            `;
 
         productGrid.appendChild(card);
     });
