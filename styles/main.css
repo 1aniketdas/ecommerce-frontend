@@ -459,7 +459,7 @@ body {
     /* width: 100%; */
     border: none;
     border-radius: 10px;
-    background: cyan;
+    background: #ffb83c;
     cursor: pointer;
 }
 .price_and_cart {
