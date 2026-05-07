@@ -162,26 +162,40 @@ prevBtn.addEventListener("click", () => {
 
 
 async function loadProducts() {
+    let productGrid = document.getElementById("productGrid");
+    try {
+        /* LOADING */
+        productGrid.innerHTML = `<p id="loading">Loading products...</p>`;
 
-    let res = await fetch("https://fakestoreapi.com/products");
-    let data = await res.json();
+        /* FETCH API */
+        let res = await fetch("https://fakestoreapi.com/products");
 
-    data.forEach(p => {
+        /* ERROR CHECK */
+        if(!res.ok){
+            throw new Error("API failed to fetch products");
+        }
+        let data = await res.json();
 
-        let card = document.createElement("div");
-        card.classList.add("product-card");
-
-        card.innerHTML = `
-            <img src="${p.image}" loading="lazy">
-            <h3>${p.title}</h3>
-            <div class="price_and_cart">
-                <p>$${p.price}</p>
-                <button>Add to Cart</button>
-            </div>
+        productGrid.innerHTML = ""; // Clear loading text
+        data.forEach(p => {
+            let card=document.createElement("div");
+            card.classList.add("product-card");
+            card.innerHTML = `
+                <img src="${p.image}" loading="lazy">
+                <h3>${p.title}</h3>
+                <div class="price_and_cart">
+                    <p>$${p.price}</p>
+                    <button>Add to Cart</button>
+                </div>
             `;
-
-        productGrid.appendChild(card);
-    });
+            productGrid.appendChild(card);
+        });
+    }
+    catch (error) {
+        console.log(error);
+        // productGrid.innerHTML = `<p id="loading">Failed to load products. Please try again later.</p>`;
+        productGrid.innerHTML = `<h2>Failed to load products 😢</h2>`;
+    }
 }
 
 loadProducts();
