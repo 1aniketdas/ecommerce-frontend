@@ -204,3 +204,15 @@ async function loadProducts() {
 }
 
 loadProducts();
+
+
+/* CART COUNT */
+
+function updateCartCount() {
+
+    let cart =JSON.parse(localStorage.getItem("cart")) || [];
+
+    document.querySelector(".cart-count").innerText =cart.length;
+}
+
+updateCartCount();
