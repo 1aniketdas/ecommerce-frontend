@@ -177,6 +177,8 @@ async function loadProducts() {
         let data = await res.json();
 
         productGrid.innerHTML = ""; // Clear loading text
+        
+        /* LOOP PRODUCTS */
         data.forEach(p => {
             let card=document.createElement("div");
             card.classList.add("product-card");
@@ -189,6 +191,9 @@ async function loadProducts() {
                 </div>
             `;
             productGrid.appendChild(card);
+            card.addEventListener("click", () => {
+                window.location.href =`product.html?id=${p.id}`;
+            });
         });
     }
     catch (error) {

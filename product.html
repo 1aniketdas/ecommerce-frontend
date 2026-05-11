@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Frontend</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://db.onlinewebfonts.com/c/8b8821ce464b5a4f4eb91cc78e57b2d7?family=Myriad+Pro+Semibold+SemiCondensed" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header class="header">
+        
+        <!-- LEFT: Logo -->
+    <div class="logo">
+    <svg class="logo-svg" viewBox="0 0 400 100">
+
+        <!-- Main text -->
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+              class="glitch-text main">
+            NEONSHOP
+        </text>
+
+        <!-- Glitch layers -->
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+              class="glitch-text glitch1">
+            NEONSHOP
+        </text>
+
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+              class="glitch-text glitch2">
+            NEONSHOP
+        </text>
+
+    </svg>
+</div>
+
+    <!-- CENTER: Navigation -->
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- RIGHT: Search + Cart -->
+    <div class="right-section">
+
+        <!-- Search -->
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+        </div>
+
+        <!-- Cart -->
+        <div class="cart">
+            🛒
+            <span class="cart-count">0</span>
+        </div>
+
+        <!-- Hamburger -->
+        <div class="hamburger">
+            ☰
+        </div>
+
+    </div>
+
+</header>
+
+<section class="product-detail">
+
+    <div class="product-image">
+        <img id="detailImage">
+    </div>
+
+    <div class="product-info">
+
+        <h1 id="detailTitle"></h1>
+
+        <p id="detailPrice"></p>
+
+        <p id="detailDescription"></p>
+
+        <button id="addToCartBtn">
+            Add To Cart
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="footup">
+        <p>&copy; 2026 NeonShop. All rights reserved.</p>
+    </div>
+    <div class="footdown">
+        <p>Follow us on social media for the latest updates and exclusive offers!</p>
+        <div class="social-icons">
+            <a href="#"><img src="assets/Social_Facebook_White.webp" alt="Facebook"></a>
+            <a href="#"><img src="assets/Social_Twitter_White.webp" alt="Twitter"></a>
+            <a href="#"><img src="assets/Social_Insta_White.webp" alt="Instagram"></a>
+            <!-- <a href="#"><img src="assets/Social_LinkedIn_White.webp" alt="LinkedIn"></a> -->
+        </div>
+    </div>
+</footer>
+<script src="scripts/app.js"></script>
+<script src="scripts/product.js"></script>
+</body>
+</html>
