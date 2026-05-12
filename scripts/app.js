@@ -211,8 +211,11 @@ loadProducts();
 function updateCartCount() {
 
     let cart =JSON.parse(localStorage.getItem("cart")) || [];
-
-    document.querySelector(".cart-count").innerText =cart.length;
+    let totalItems=0;
+    cart.forEach(item => {
+        totalItems+=item.quantity;
+    })
+    document.querySelector(".cart-count").innerText =totalItems;
 }
 
 updateCartCount();
