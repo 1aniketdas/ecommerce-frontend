@@ -535,6 +535,36 @@ body {
     font-weight: bold;
 }
 
+.quantity-box{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin: 20px 0;
+}
+
+.quantity-box button{
+    width: 40px;
+    height: 40px;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    border: none;
+    border-radius: 8px;
+}
+
+#quantity{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.total-price{
+    margin-bottom: 20px;
+}
+
+
 #addToCartBtn {
 
     width: 200px;
@@ -552,7 +582,18 @@ body {
     font-size: 18px;
 }
 
+#cartMessage{
 
+    color: green;
+
+    font-weight: bold;
+
+    margin-top: 15px;
+
+    opacity: 0;
+
+    transition: 0.3s;
+}
 
 
 
