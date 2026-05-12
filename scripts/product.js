@@ -84,7 +84,7 @@ function updateCartCount() {
     let cart =JSON.parse(localStorage.getItem("cart")) || [];
     let totalItems=0;
     cart.forEach(item => {
-        totalItems+=item.quantity;
+        totalItems+=item.quantity || 1;
     })
     document.querySelector(".cart-count").innerText =totalItems;
 }
