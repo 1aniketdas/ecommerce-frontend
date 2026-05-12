@@ -53,10 +53,10 @@
         </div>
 
         <!-- Cart -->
-        <a href="cart.html" class="cart">
+        <div class="cart">
             🛒
             <span class="cart-count">0</span>
-        </a>
+        </div>
 
         <!-- Hamburger -->
         <div class="hamburger">
@@ -66,66 +66,41 @@
     </div>
 
 </header>
-<section class="hero">
 
-    <!-- SLIDER IMAGES -->
-    <div class="hero-slider">
-        <img src="assets/samsung.jpg" class="active">
-        <img src="assets/cosmetics copy.jpg">
-        <img src="assets/garments.jpg">
-        <img src="assets/grocery.jpg">
-        <img src="assets/furniture copy.jpg">
-        <img src="assets/tv.jpg">
-        <img src="assets/sports copy.jpg" alt="">
-    </div>
-    <button class="slider-btn prev">&#10094;</button>
-    <button class="slider-btn next">&#10095;</button>
 
-    <!-- CONTENT OVER IMAGE -->
-    <!-- <div class="hero-content">
-        <h1>Biggest Sale of the Year!</h1>
-        <p>Up to 50% off on all products</p>
-        <a href="#products" class="cta-btn">Shop Now</a>
-    </div> -->
-
-</section>
-<section class="categories">
-    <div class="category-list">
-        <div class="category-item">
-            <img src="assets/Icon1 copy.jpg" alt="Electronics">
-            <p>Electronics</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon2 copy.jpg" alt="Fashion">
-            <p>Fashion</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon3 copy.jpg" alt="Home & Living">
-            <p>Home Decors</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon4 copy.jpg" alt="Beauty & Personal Care">
-            <p>Beauty & Care</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon5 copy.jpg" alt="Grocery">
-            <p>Grocery</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon6 copy.jpg" alt="Sports & Outdoors">
-            <p>Sports & Outdoors</p>
-        </div>
-    </div>
-
-</section>
-<section class="products">
-    <!-- <h2>Products</h2> -->
-
-    <div class="product-grid" id="productGrid">
-        <p id="loading">Loading products...</p>
-        <!-- JS will fill this -->
+<section class="cart-page">
+    <h1>Your Cart</h1>
+    <div id="cartItems"></div>
+    <div class="cart-summary">
+        <h2>
+            Total: $
+            <span id="cartTotal">0</span>
+        </h2>
+        <button id="checkoutBtn">
+            Checkout
+        </button>
+        <a href="index.html">
+            <button class="continue-btn">
+                Continue shopping
+            </button>
+        </a>
     </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <footer>
     <div class="footup">
         <p>&copy; 2026 NeonShop. All rights reserved.</p>
@@ -141,5 +116,6 @@
     </div>
 </footer>
     <script src="scripts/app.js"></script>
+    <script src="scripts/cart.js"></script>
 </body>
 </html>
