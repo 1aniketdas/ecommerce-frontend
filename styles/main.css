@@ -715,6 +715,107 @@ body {
 
 
 
+.auth-section{
+
+    min-height: 80vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.auth-container{
+
+    width: 400px;
+
+    background: rgb(246,246,246);
+
+    padding: 30px;
+
+    border-radius: 20px;
+}
+
+.auth-container form{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.auth-container input{
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+}
+
+.auth-container button{
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: orange;
+
+    cursor: pointer;
+}
+
+.auth-toggle{
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.hidden-form{
+
+    display: none !important;
+}
+
+.password-box{
+
+    position: relative;
+}
+
+.toggle-password{
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+}
+
+.error-msg{
+
+    color: red;
+
+    font-size: 14px;
+}
+
+#strengthText{
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+
 
 
 
@@ -838,5 +939,9 @@ footer{
 @media (max-width: 500px) {
     .product-grid {
         grid-template-columns: 1fr;
+    }
+    .auth-container{
+
+        width: 90%;
     }
 }

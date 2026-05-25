@@ -32,7 +32,7 @@
         </text>
 
     </svg>
-</div>
+    </div>
 
     <!-- CENTER: Navigation -->
     <nav class="nav">
@@ -52,84 +52,115 @@
             <input type="text" placeholder="Search products...">
         </div>
 
-        <!-- Cart -->
-        <a href="cart.html" class="cart">
-            🛒
-            <span class="cart-count">0</span>
-        </a>
-
-        <a href="auth.html" class="login-btn">
-            Login
-        </a>
-
         <!-- Hamburger -->
         <div class="hamburger">
             ☰
         </div>
 
     </div>
+    </header>
 
-</header>
-<section class="hero">
+    <section class="auth-section">
 
-    <!-- SLIDER IMAGES -->
-    <div class="hero-slider">
-        <img src="assets/samsung.jpg" class="active">
-        <img src="assets/cosmetics copy.jpg">
-        <img src="assets/garments.jpg">
-        <img src="assets/grocery.jpg">
-        <img src="assets/furniture copy.jpg">
-        <img src="assets/tv.jpg">
-        <img src="assets/sports copy.jpg" alt="">
+    <div class="auth-container">
+
+        <div class="auth-toggle">
+            <button id="showLogin">Login</button>
+            <button id="showSignup">Signup</button>
+        </div>
+
+        <!-- LOGIN -->
+        <form id="loginForm">
+
+            <h2>Login</h2>
+
+            <input
+            type="email"
+            id="loginEmail"
+            placeholder="Email">
+
+            <div class="password-box">
+
+                <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password">
+
+                <!-- <span class="toggle-password">
+                    👁
+                </span> -->
+
+            </div>
+
+            <a href="#" class="forgot-link">
+                Forgot Password?
+            </a>
+
+            <p class="error-msg" id="loginError"></p>
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <!-- SIGNUP -->
+        <form id="signupForm" class="hidden-form">
+
+            <h2>Signup</h2>
+
+            <input
+            type="text"
+            id="signupName"
+            placeholder="Full Name">
+
+            <input
+            type="email"
+            id="signupEmail"
+            placeholder="Email">
+
+            <div class="password-box">
+
+                <input
+                type="password"
+                id="signupPassword"
+                placeholder="Password">
+
+                <!-- <span class="toggle-password">
+                    👁
+                </span> -->
+
+            </div>
+
+            <div id="strengthText"></div>
+
+            <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password">
+
+            <p class="error-msg" id="signupError"></p>
+
+            <button type="submit">
+                Sign Up
+            </button>
+
+        </form>
+
     </div>
-    <button class="slider-btn prev">&#10094;</button>
-    <button class="slider-btn next">&#10095;</button>
-
-    <!-- CONTENT OVER IMAGE -->
-    <!-- <div class="hero-content">
-        <h1>Biggest Sale of the Year!</h1>
-        <p>Up to 50% off on all products</p>
-        <a href="#products" class="cta-btn">Shop Now</a>
-    </div> -->
 
 </section>
-<section class="categories">
-    <div class="category-list">
-        <div class="category-item">
-            <img src="assets/Icon1 copy.jpg" alt="Electronics">
-            <p>Electronics</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon2 copy.jpg" alt="Fashion">
-            <p>Fashion</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon3 copy.jpg" alt="Home & Living">
-            <p>Home Decors</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon4 copy.jpg" alt="Beauty & Personal Care">
-            <p>Beauty & Care</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon5 copy.jpg" alt="Grocery">
-            <p>Grocery</p>
-        </div>
-        <div class="category-item">
-            <img src="assets/Icon6 copy.jpg" alt="Sports & Outdoors">
-            <p>Sports & Outdoors</p>
-        </div>
-    </div>
 
-</section>
-<section class="products">
-    <!-- <h2>Products</h2> -->
 
-    <div class="product-grid" id="productGrid">
-        <p id="loading">Loading products...</p>
-        <!-- JS will fill this -->
-    </div>
-</section>
+
+
+
+
+
+
+
+
+
 <footer>
     <div class="footup">
         <p>&copy; 2026 NeonShop. All rights reserved.</p>
@@ -145,5 +176,6 @@
     </div>
 </footer>
     <script src="scripts/app.js"></script>
+    <script src="scripts/auth.js"></script>
 </body>
 </html>
