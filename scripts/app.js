@@ -172,10 +172,14 @@ document.getElementById("logoutBtn");
 
 onAuthStateChanged(auth, (user) =>
 {
+    let userEmail = document.getElementById("userEmail");
     if(user)
     {
+        if(userEmail)
+        {
+            userEmail.innerText = user.email;
+        }
         // USER LOGGED IN
-
         if(loginBtn)
         {
             loginBtn.style.display = "none";
@@ -188,6 +192,10 @@ onAuthStateChanged(auth, (user) =>
     }
     else
     {
+        if(userEmail)
+        {
+            userEmail.innerText = "";
+        }
         // USER LOGGED OUT
 
         if(loginBtn)
