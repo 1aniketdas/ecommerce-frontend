@@ -288,9 +288,46 @@ body {
     right: 20px;
 }
 
+.auth-buttons
+{
+    display: flex;
+    gap: 10px;
+}
 
+.logout-btn
+{
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    background: crimson;
+    color: white;
 
+    display: none;
+}
 
+.logout-btn:hover
+{
+    opacity: 0.9;
+}
+.login-btn
+{
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    background: crimson;
+    color: white;
+
+    display: none;
+}
+
+.login-btn:hover
+{
+    opacity: 0.9;
+}
 
 
 

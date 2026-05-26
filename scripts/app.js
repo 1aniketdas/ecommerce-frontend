@@ -1,3 +1,14 @@
+import { auth }
+from "./firebase.js";
+
+import
+{
+    onAuthStateChanged,
+    signOut
+}
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
 console.log("E-Commerce Website Loaded");
 let hamburger = document.querySelector(".hamburger");
 let nav = document.querySelector(".nav");
@@ -20,22 +31,6 @@ function showSlide(i) {
 
     slides[i].classList.add("active");
 }
-
-/* AUTO SLIDE */
-// setInterval(() => {
-
-//     // slides[index].classList.remove("active");
-
-//     index++;
-
-//     if (index >= slides.length) {
-//         index = 0;
-//     }
-
-//     showSlide(index);
-//     // slides[index].classList.add("active");
-
-// }, 3000);
 
 
 
@@ -60,105 +55,51 @@ function startAutoSlide() {
 }
 
 /* START AUTO SLIDE */
-startAutoSlide();
 
-/* NEXT BUTTON */
-// nextBtn.addEventListener("click", () => {
 
-//     index++;
-
-//     if(index >= slides.length) {
-//         index = 0;
-//     }
-
-//     showSlide(index);
-
-// });
 
 
 /* NEXT BUTTON */
-nextBtn.addEventListener("click", () => {
+// and
+/* PREV BUTTON */
 
-    index++;
-
-    if(index >= slides.length) {
-        index = 0;
-    }
-
-    showSlide(index);
-
-    clearInterval(autoSlide);
+if(nextBtn && prevBtn && slides.length > 0)
+{
     startAutoSlide();
 
-});
+    nextBtn.addEventListener("click", () =>
+    {
+        index++;
 
-/* PREV BUTTON */
-// prevBtn.addEventListener("click", () => {
+        if(index >= slides.length)
+        {
+            index = 0;
+        }
 
-//     index--;
+        showSlide(index);
 
-//     if(index < 0) {
-//         index = slides.length - 1;
-//     }
+        clearInterval(autoSlide);
 
-//     showSlide(index);
+        startAutoSlide();
+    });
 
-// });
+    prevBtn.addEventListener("click", () =>
+    {
+        index--;
 
-/* PREV BUTTON */
-prevBtn.addEventListener("click", () => {
+        if(index < 0)
+        {
+            index = slides.length - 1;
+        }
 
-    index--;
+        showSlide(index);
 
-    if(index < 0) {
-        index = slides.length - 1;
-    }
+        clearInterval(autoSlide);
 
-    showSlide(index);
+        startAutoSlide();
+    });
+}
 
-    clearInterval(autoSlide);
-    startAutoSlide();
-
-});
-
-// let productGrid = document.getElementById("productGrid");
-
-// let demoProducts = [
-//     {
-//         title: "Gaming Mouse",
-//         price: "$25",
-//         image: "https://via.placeholder.com/200"
-//     },
-//     {
-//         title: "Laptop",
-//         price: "$999",
-//         image: "https://via.placeholder.com/200"
-//     },
-//     {
-//         title: "Headphones",
-//         price: "$120",
-//         image: "https://via.placeholder.com/200"
-//     },
-//     {
-//         title: "Keyboard",
-//         price: "$80",
-//         image: "https://via.placeholder.com/200"
-//     }
-// ];
-
-// demoProducts.forEach(p => {
-//     let card = document.createElement("div");
-//     card.classList.add("product-card");
-
-//     card.innerHTML = `
-//         <img src="${p.image}">
-//         <h3>${p.title}</h3>
-//         <p>${p.price}</p>
-//         <button>Add to Cart</button>
-//     `;
-
-//     productGrid.appendChild(card);
-// });
 
 
 async function loadProducts() {
@@ -219,3 +160,68 @@ function updateCartCount() {
 }
 
 updateCartCount();
+
+// AUTH UI
+
+let loginBtn =
+document.getElementById("loginBtn");
+
+let logoutBtn =
+document.getElementById("logoutBtn");
+
+
+onAuthStateChanged(auth, (user) =>
+{
+    if(user)
+    {
+        // USER LOGGED IN
+
+        if(loginBtn)
+        {
+            loginBtn.style.display = "none";
+        }
+
+        if(logoutBtn)
+        {
+            logoutBtn.style.display = "block";
+        }
+    }
+    else
+    {
+        // USER LOGGED OUT
+
+        if(loginBtn)
+        {
+            loginBtn.style.display = "block";
+        }
+
+        if(logoutBtn)
+        {
+            logoutBtn.style.display = "none";
+        }
+    }
+});
+
+
+// LOGOUT
+
+if(logoutBtn)
+{
+    logoutBtn.addEventListener("click",
+    async () =>
+    {
+        try
+        {
+            await signOut(auth);
+
+            alert("Logged Out ✅");
+
+            window.location.href =
+            "auth.html";
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    });
+}

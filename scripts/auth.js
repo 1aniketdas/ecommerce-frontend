@@ -1,8 +1,58 @@
+
+
+// FIREBASE IMPORTS
+
+import { auth }
+from "./firebase.js";
+
+import
+{
+    createUserWithEmailAndPassword,
+
+    signInWithEmailAndPassword,
+
+    signOut,
+
+    onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+// // FIREBASE CONFIG
+
+// const firebaseConfig = {
+
+//     apiKey: "YOUR_API_KEY",
+
+//     authDomain: "YOUR_AUTH_DOMAIN",
+
+//     projectId: "YOUR_PROJECT_ID",
+
+//     storageBucket: "YOUR_STORAGE_BUCKET",
+
+//     messagingSenderId: "YOUR_MSG_ID",
+
+//     appId: "YOUR_APP_ID"
+// };
+
+
+// // INITIALIZE FIREBASE
+
+// const app = initializeApp(firebaseConfig);
+
+// const auth = getAuth(app);
+
+
+// FORMS
+
 let loginForm =
 document.getElementById("loginForm");
 
 let signupForm =
 document.getElementById("signupForm");
+
+
+// FORM SWITCHING
 
 document.getElementById("showSignup")
 .addEventListener("click", () =>
@@ -20,34 +70,27 @@ document.getElementById("showLogin")
     loginForm.classList.remove("hidden-form");
 });
 
-document.querySelectorAll(".toggle-password")
-.forEach(icon =>
-{
-    icon.addEventListener("click", () =>
-    {
-        let input =
-        icon.previousElementSibling;
 
-        if(input.type === "password")
-        {
-            input.type = "text";
-        }
-        else
-        {
-            input.type = "password";
-        }
-    });
-});
+// EMAIL VALIDATION
+
 function validEmail(email)
 {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     .test(email);
 }
+
+
+// PASSWORD VALIDATION
+
 function validPassword(password)
 {
     return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/
     .test(password);
 }
+
+
+// PASSWORD STRENGTH
+
 let signupPassword =
 document.getElementById("signupPassword");
 
@@ -75,12 +118,13 @@ signupPassword.addEventListener("input", () =>
     }
 });
 
-signupForm.addEventListener("submit", (e) =>
+
+// SIGNUP
+
+signupForm.addEventListener("submit",
+async (e) =>
 {
     e.preventDefault();
-
-    let name =
-    document.getElementById("signupName").value;
 
     let email =
     document.getElementById("signupEmail").value;
@@ -91,65 +135,59 @@ signupForm.addEventListener("submit", (e) =>
     let confirm =
     document.getElementById("confirmPassword").value;
 
-    let error =
+    let signupError =
     document.getElementById("signupError");
 
-    error.innerText = "";
+    signupError.innerText = "";
 
     if(!validEmail(email))
     {
-        error.innerText = "Invalid Email";
+        signupError.innerText =
+        "Invalid Email";
+
         return;
     }
 
     if(!validPassword(password))
     {
-        error.innerText =
-        "Password not strong enough";
+        signupError.innerText =
+        "Password must contain uppercase, lowercase and number";
 
         return;
     }
 
     if(password !== confirm)
     {
-        error.innerText =
+        signupError.innerText =
         "Passwords do not match";
 
         return;
     }
 
-    let users =
-    JSON.parse(localStorage.getItem("users"))
-    || [];
-
-    let existing =
-    users.find(user => user.email === email);
-
-    if(existing)
+    try
     {
-        error.innerText =
-        "Email already exists";
+        await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
 
-        return;
+        alert("Signup Successful ✅");
+
+        signupForm.reset();
     }
-
-    users.push({
-        name,
-        email,
-        password
-    });
-
-    localStorage.setItem(
-        "users",
-        JSON.stringify(users)
-    );
-
-    alert("Signup Successful ✅");
-
-    signupForm.reset();
+    catch(error)
+    {
+        signupError.innerText =
+        error.message;
+    }
 });
 
-loginForm.addEventListener("submit", (e) =>
+
+// LOGIN
+
+loginForm.addEventListener("submit",
+async (e) =>
 {
     e.preventDefault();
 
@@ -162,30 +200,40 @@ loginForm.addEventListener("submit", (e) =>
     let error =
     document.getElementById("loginError");
 
-    let users =
-    JSON.parse(localStorage.getItem("users"))
-    || [];
+    error.innerText = "";
 
-    let validUser =
-    users.find(user =>
-        user.email === email &&
-        user.password === password
-    );
-
-    if(validUser)
+    try
     {
-        localStorage.setItem(
-            "loggedInUser",
-            JSON.stringify(validUser)
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
         );
 
         alert("Login Successful ✅");
 
-        window.location.href = "index.html";
+        window.location.href =
+        "index.html";
+    }
+    catch(error)
+    {
+        error.innerText =
+        "Invalid Email or Password";
+    }
+});
+
+
+// AUTH STATE
+
+onAuthStateChanged(auth, (user) =>
+{
+    if(user)
+    {
+        console.log("Logged In:",
+        user.email);
     }
     else
     {
-        error.innerText =
-        "Invalid Credentials";
+        console.log("Logged Out");
     }
 });
