@@ -205,23 +205,20 @@ onAuthStateChanged(auth, (user) =>
 
 // LOGOUT
 
-if(logoutBtn)
+logoutBtn?.addEventListener("click",
+async () =>
 {
-    logoutBtn.addEventListener("click",
-    async () =>
+    try
     {
-        try
-        {
-            await signOut(auth);
+        await signOut(auth);
 
-            alert("Logged Out ✅");
+        alert("Logged Out ✅");
 
-            window.location.href =
-            "auth.html";
-        }
-        catch(error)
-        {
-            console.log(error);
-        }
-    });
-}
+        window.location.href =
+        "auth.html";
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+});
