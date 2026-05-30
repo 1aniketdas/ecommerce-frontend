@@ -428,7 +428,7 @@ body {
 
 .product-grid {
     /* border: 2px solid rgb(0, 0, 255); */
-    width: 55%;
+    width: 82%;
     margin: 0 auto;
     display: grid;
     /* grid-template-columns: repeat(4, 1fr); */
@@ -440,7 +440,7 @@ body {
     /* align-content: center; */
     gap: 10px;
     padding: 10px;
-    background-color: rgb(246, 246, 246);
+    /* background-color: rgb(246, 246, 246); */
     border-radius: 15px;
 }
 
@@ -453,7 +453,7 @@ body {
     padding: 10px;
     /* transition: 0.3s; */
     /* box-shadow: 2px 2px 5px rgba(0,0,0,0.1); */
-    box-shadow: rgba(0, 0, 0, 0.04) 2px 2px 8px;
+    box-shadow: rgba(0, 0, 0, 0.05) 8px 8px 8px 0px;
     cursor: pointer;
     /* text-align: center; */
     max-width: 250px;
